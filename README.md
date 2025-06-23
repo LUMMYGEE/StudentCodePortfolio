@@ -80,12 +80,6 @@ Visual skill bars to highlight:
 
 ---
 
-## 📷 Screenshots
-
-*(Add screenshots of your live project or each project section if possible)*
-
----
-
 ## 📇 Author
 
 ** Adewale Gabriel**  
