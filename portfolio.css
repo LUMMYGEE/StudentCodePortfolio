@@ -100,12 +100,15 @@ nav {
 }
 
 .logo {
+  background-color: var(--logo-bg, #232146);
+  color: white;
+  font-weight: 700;
   font-size: 1.5rem;
-  font-weight: bold;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  padding: 10px 25px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  user-select: none;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -205,6 +208,7 @@ nav {
   display: flex;
   align-items: center;
   padding: 0 2rem;
+  padding-top: 100px; /* Add space for fixed navbar */
   background: linear-gradient(
     135deg,
     var(--bg-primary) 0%,
@@ -1012,6 +1016,12 @@ footer {
 }
 
   /* Hero Section */
+  .hero {
+    padding-top: 120px; /* More space on mobile */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1020,6 +1030,11 @@ footer {
 
   .hero-text h1 {
     font-size: 2.5rem;
+    margin-bottom: 1.5rem; /* Add space after heading */
+  }
+  
+  .tagline {
+    margin-bottom: 1.5rem; /* Add space after tagline */
   }
 
   /* Timeline */
@@ -1063,8 +1078,19 @@ footer {
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 140px;
+  }
+  
   .hero-text h1 {
     font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
 
   .section-title {
@@ -1072,8 +1098,8 @@ footer {
   }
 
   .profile-pic {
-    width: 250px;
-    height: 300px;
+    width: 200px;
+    height: 250px;
   }
 }
 
