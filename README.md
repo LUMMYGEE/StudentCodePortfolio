@@ -11,7 +11,7 @@ It’s designed to demonstrate the kind of real, professional-looking projects b
 
 ## 🔗 Live Demo
 
-➡️ [View Live Portfolio](#) *()*
+➡️ [View Live Portfolio](#) *(https://codemyprofile.netlify.app/)*
 
 ---
 

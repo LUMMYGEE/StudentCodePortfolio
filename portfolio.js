@@ -478,7 +478,6 @@ function submitForm(event) {
   // Send email using EmailJS
   emailjs.sendForm('service_604uzni', 'template_5yw7b5i', form)
     .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
       
       // Show success message
       if (successMessage) {
@@ -497,7 +496,6 @@ function submitForm(event) {
       }, 5000);
       
     }, function(error) {
-      console.log('FAILED...', error);
       alert('Failed to send message. Please try again.');
     })
     .finally(() => {
@@ -639,7 +637,6 @@ document.addEventListener("keydown", function (e) {
       document.body.style.animation = "";
     }, 4000);
 
-    console.log("🎉 Easter egg activated! You found the secret code!");
     konamiCode = [];
   }
 });
