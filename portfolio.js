@@ -505,19 +505,6 @@ function submitForm(event) {
     });
 }
 
-// Utility Functions
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
 // Add smooth scrolling to all anchor links
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll('a[href^="#"]');
@@ -539,37 +526,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Keyboard shortcuts
-document.addEventListener("keydown", function (e) {
-  // Toggle theme with Ctrl + D
-  if (e.ctrlKey && e.key === "d") {
-    e.preventDefault();
-    toggleTheme();
-  }
-
-  // Focus search with Ctrl/Cmd + K (if you add search later)
-  if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-    e.preventDefault();
-    // Focus search input if it exists
-  }
-});
-
-// Add typing effect to hero text (optional enhancement)
-function typeWriter(element, text, speed = 50) {
-  let i = 0;
-  element.innerHTML = "";
-
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-
-  type();
-}
-
 // Performance optimization: Lazy load images
 function lazyLoadImages() {
   const images = document.querySelectorAll("img[data-src]");
@@ -586,79 +542,3 @@ function lazyLoadImages() {
 
   images.forEach((img) => imageObserver.observe(img));
 }
-
-// Add parallax effect to hero section (optional)
-function initParallax() {
-  const hero = document.querySelector(".hero");
-
-  if (hero) {
-    const parallaxElements = hero.querySelectorAll(".hero-text, .hero-image");
-
-    window.addEventListener(
-      "scroll",
-      debounce(() => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-
-        parallaxElements.forEach((element) => {
-          element.style.transform = `translateY(${rate}px)`;
-        });
-      }, 10)
-    );
-  }
-}
-
-// Add easter egg (Konami code)
-let konamiCode = [];
-const konamiSequence = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
-  "KeyB",
-  "KeyA",
-];
-
-document.addEventListener("keydown", function (e) {
-  konamiCode.push(e.code);
-
-  if (konamiCode.length > konamiSequence.length) {
-    konamiCode.shift();
-  }
-
-  if (konamiCode.join(",") === konamiSequence.join(",")) {
-    // Easter egg activated!
-    document.body.style.animation = "rainbow 2s infinite";
-    setTimeout(() => {
-      document.body.style.animation = "";
-    }, 4000);
-
-    konamiCode = [];
-  }
-});
-
-// Add rainbow animation for easter egg
-const style = document.createElement("style");
-style.textContent = `
-    @keyframes rainbow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
-
-// Export functions for global use (if needed)
-window.portfolioFunctions = {
-  toggleTheme,
-  calculate,
-  clearDisplay,
-  deleteLast,
-  appendToDisplay,
-  selectAnswer,
-  nextQuestion,
-  submitForm,
-};
